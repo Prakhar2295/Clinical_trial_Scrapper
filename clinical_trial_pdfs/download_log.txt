@@ -1,0 +1,59 @@
+Clinical Trial PDF Download Log
+============================================================
+
+Total PDFs downloaded: 45
+
+By document type:
+  Protocol: 15
+  SAP: 15
+  ICF: 15
+  Combined: 0
+  Other: 0
+
+File list:
+------------------------------------------------------------
+[Protocol] NCT06900647 | Prot_000.pdf | Study Protocol
+[Protocol] NCT06429189 | Prot_000.pdf | Study Protocol
+[ICF] NCT06766903 | ICF_002.pdf | Informed Consent Form
+[ICF] NCT03645005 | ICF_001.pdf | Informed Consent Form
+[Protocol] NCT05266937 | Prot_000.pdf | Study Protocol
+[Protocol] NCT04868812 | Prot_000.pdf | Study Protocol
+[ICF] NCT04744506 | ICF_003.pdf | Informed Consent Form
+[Protocol] NCT00496795 | Prot_000.pdf | Study Protocol
+[ICF] NCT00496795 | ICF_001.pdf | Informed Consent Form
+[Protocol] NCT07231159 | Prot_000.pdf | Study Protocol
+[Protocol] NCT05441943 | Prot_000.pdf | Study Protocol
+[ICF] NCT05519774 | ICF_001.pdf | Informed Consent Form
+[ICF] NCT01570998 | ICF_000.pdf | Informed Consent Form
+[ICF] NCT05288036 | ICF_001.pdf | Informed Consent Form
+[Protocol] NCT05404087 | Prot_000.pdf | Study Protocol
+[Protocol] NCT07472036 | Prot_000.pdf | Study Protocol
+[Protocol] NCT05332561 | Prot_000.pdf | Study Protocol
+[Protocol] NCT06746142 | Prot_000.pdf | Study Protocol
+[ICF] NCT06335550 | ICF_001.pdf | Informed Consent Form
+[Protocol] NCT06690489 | Prot_000.pdf | Study Protocol
+[ICF] NCT03279198 | ICF_001.pdf | Informed Consent Form
+[ICF] NCT07250204 | ICF_001.pdf | Informed Consent Form
+[Protocol] NCT06977620 | Prot_000.pdf | Study Protocol
+[Protocol] NCT07370571 | Prot_000.pdf | Study Protocol
+[ICF] NCT07044791 | ICF_001.pdf | Informed Consent Form: English version
+[Protocol] NCT03413332 | Prot_000.pdf | Study Protocol
+[ICF] NCT02872025 | ICF_001.pdf | Informed Consent Form
+[ICF] NCT07263347 | ICF_001.pdf | Informed Consent Form
+[ICF] NCT07447700 | ICF_001.pdf | Informed Consent Form
+[ICF] NCT06583395 | ICF_001.pdf | Informed Consent Form
+[SAP] NCT03390608 | SAP_000.pdf | Statistical Analysis Plan
+[SAP] NCT04313075 | SAP_001.pdf | Statistical Analysis Plan
+[SAP] NCT03216187 | SAP_001.pdf | Statistical Analysis Plan
+[SAP] NCT02240472 | SAP_001.pdf | Statistical Analysis Plan
+[SAP] NCT05595330 | SAP_001.pdf | Statistical Analysis Plan
+[SAP] NCT04464174 | SAP_001.pdf | Statistical Analysis Plan
+[SAP] NCT05853887 | SAP_002.pdf | Statistical Analysis Plan: iNUDGE Statistical Analysis Plan 04.30.2025
+[SAP] NCT06476249 | SAP_001.pdf | Statistical Analysis Plan
+[SAP] NCT04768075 | SAP_001.pdf | Statistical Analysis Plan
+[SAP] NCT07107893 | SAP_001.pdf | Statistical Analysis Plan: STATISTICAL ANALYSIS
+[SAP] NCT05652868 | SAP_001.pdf | Statistical Analysis Plan
+[SAP] NCT01687738 | SAP_001.pdf | Statistical Analysis Plan
+[SAP] NCT07145333 | SAP_001.pdf | Statistical Analysis Plan
+[SAP] NCT05987956 | SAP_017.pdf | Statistical Analysis Plan
+[SAP] NCT06093334 | SAP_003.pdf | Statistical Analysis Plan
