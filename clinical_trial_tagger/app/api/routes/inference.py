@@ -2,11 +2,13 @@ import logging
 import os
 import tempfile
 import time
+from datetime import datetime
 from pathlib import Path
 
 from fastapi import APIRouter, File, UploadFile
 
 from app.agent.graph import agent_graph
+from app.core.tagger import write_tagged_file
 from app.schemas.inference import InferenceResponse
 
 logger = logging.getLogger(__name__)
@@ -32,6 +34,18 @@ def run_inference(file: UploadFile = File(...)) -> InferenceResponse:
     start = time.time()
     try:
         state = agent_graph.invoke({"file_path": tmp.name, "filename": file.filename})
+
+        if state.get("final_category"):
+            write_tagged_file(
+                original_file_path=tmp.name,
+                filename=file.filename,
+                final_category=state.get("final_category", ""),
+                final_confidence=state.get("final_confidence", 0.0),
+                reasoning=state.get("reasoning", ""),
+                vote_breakdown=state.get("vote_counts", {}),
+                fallback_triggered=bool(state.get("fallback_triggered", False)),
+                classified_at=datetime.now().isoformat(timespec="seconds"),
+            )
     finally:
         if os.path.exists(tmp.name):
             os.remove(tmp.name)

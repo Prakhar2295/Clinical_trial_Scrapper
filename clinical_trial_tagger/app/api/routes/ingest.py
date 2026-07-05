@@ -1,11 +1,14 @@
 import logging
 import os
 import tempfile
+from datetime import datetime
 from pathlib import Path
 
-from fastapi import APIRouter, BackgroundTasks, File, Form, UploadFile
+from fastapi import APIRouter, BackgroundTasks, File, Form, HTTPException, UploadFile
 
-from app.core.chunker import chunk_for_ingestion
+from app.core.category_registry import category_registry
+from app.core.chunk_writer import write_chunk_debug
+from app.core.chunker import chunk_for_ingestion, split_pages
 from app.core.embedder import Embedder
 from app.core.extractor import PDFExtractor
 from app.db.weaviate_client import get_weaviate_store
@@ -27,6 +30,16 @@ def _run_ingestion(file_path: str, filename: str, category: str, nct_id: str) ->
     try:
         markdown = _extractor.extract_markdown(file_path)
         chunk_dicts = chunk_for_ingestion(markdown)
+
+        write_chunk_debug(
+            filename=filename,
+            nct_id=nct_id,
+            category=category,
+            ingested_at=datetime.now().isoformat(timespec="seconds"),
+            total_pages=len(split_pages(markdown)),
+            chunks=chunk_dicts,
+            source_type="bootstrap",
+        )
 
         items = []
         for chunk in chunk_dicts:
@@ -65,6 +78,14 @@ async def ingest(
     category: str = Form(...),
     nct_id: str | None = Form(None),
 ) -> IngestAcceptedResponse:
+    if not category_registry.exists(category):
+        raise HTTPException(
+            status_code=422,
+            detail=f"Unknown category '{category}'. "
+            f"Valid categories: {category_registry.all()}. "
+            f"Add new categories via POST /categories first.",
+        )
+
     contents = await file.read()
     suffix = Path(file.filename).suffix or ".pdf"
 

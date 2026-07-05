@@ -3,3 +3,6 @@ __pycache__/
 *.pyc
 clinical_trial_tagger/venv/
 clinical_trial_tagger/.env
+clinical_trial_tagger/chunks_debug/
+clinical_trial_tagger/tagged_files/
+clinical_trial_tagger/categories.json
