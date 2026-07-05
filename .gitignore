@@ -1,1 +1,5 @@
 venv/
+__pycache__/
+*.pyc
+clinical_trial_tagger/venv/
+clinical_trial_tagger/.env
