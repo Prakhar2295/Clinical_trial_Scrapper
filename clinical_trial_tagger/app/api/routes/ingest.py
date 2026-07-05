@@ -1,6 +1,7 @@
 import logging
 import os
 import tempfile
+import threading
 from datetime import datetime
 from pathlib import Path
 
@@ -21,13 +22,24 @@ router = APIRouter()
 _extractor = PDFExtractor()
 _embedder = Embedder()
 
+_in_progress: set[str] = set()
+_in_progress_lock = threading.Lock()
+
 
 def _run_ingestion(file_path: str, filename: str, category: str) -> None:
     """Background task: full-document extraction, chunking, embedding, and Weaviate write.
 
     No page limit and no timeout — runs to natural completion regardless of document size.
     """
+    claimed = False
     try:
+        with _in_progress_lock:
+            if filename in _in_progress:
+                logger.info(f"Skipping {filename} — ingestion already in progress")
+                return
+            _in_progress.add(filename)
+            claimed = True
+
         store = get_weaviate_store()
 
         existing = store.find_by_filename(filename)
@@ -71,6 +83,9 @@ def _run_ingestion(file_path: str, filename: str, category: str) -> None:
     except Exception:
         logger.exception("Ingestion failed for %s", filename)
     finally:
+        if claimed:
+            with _in_progress_lock:
+                _in_progress.discard(filename)
         if os.path.exists(file_path):
             os.remove(file_path)
 
