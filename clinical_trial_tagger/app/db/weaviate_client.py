@@ -11,7 +11,6 @@ from app.core.config import settings
 COLLECTION_NAME = "ClinicalTrialChunk"
 
 PROPERTIES = [
-    Property(name="nct_id", data_type=DataType.TEXT),
     Property(name="filename", data_type=DataType.TEXT),
     Property(name="category", data_type=DataType.TEXT),  # ground truth label
     Property(name="chunk_index", data_type=DataType.INT),

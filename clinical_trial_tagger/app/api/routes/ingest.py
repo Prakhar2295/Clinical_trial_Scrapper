@@ -22,7 +22,7 @@ _extractor = PDFExtractor()
 _embedder = Embedder()
 
 
-def _run_ingestion(file_path: str, filename: str, category: str, nct_id: str) -> None:
+def _run_ingestion(file_path: str, filename: str, category: str) -> None:
     """Background task: full-document extraction, chunking, embedding, and Weaviate write.
 
     No page limit and no timeout — runs to natural completion regardless of document size.
@@ -33,7 +33,6 @@ def _run_ingestion(file_path: str, filename: str, category: str, nct_id: str) ->
 
         write_chunk_debug(
             filename=filename,
-            nct_id=nct_id,
             category=category,
             ingested_at=datetime.now().isoformat(timespec="seconds"),
             total_pages=len(split_pages(markdown)),
@@ -48,7 +47,6 @@ def _run_ingestion(file_path: str, filename: str, category: str, nct_id: str) ->
                 {
                     "vector": vector,
                     "properties": {
-                        "nct_id": nct_id,
                         "filename": filename,
                         "category": category,
                         "chunk_index": chunk["chunk_index"],
@@ -76,7 +74,6 @@ async def ingest(
     background_tasks: BackgroundTasks,
     file: UploadFile = File(...),
     category: str = Form(...),
-    nct_id: str | None = Form(None),
 ) -> IngestAcceptedResponse:
     if not category_registry.exists(category):
         raise HTTPException(
@@ -93,9 +90,7 @@ async def ingest(
     tmp.write(contents)
     tmp.close()
 
-    resolved_nct_id = nct_id or file.filename.split("_")[0]
-
-    background_tasks.add_task(_run_ingestion, tmp.name, file.filename, category, resolved_nct_id)
+    background_tasks.add_task(_run_ingestion, tmp.name, file.filename, category)
 
     return IngestAcceptedResponse(
         status="accepted",

@@ -37,7 +37,7 @@ def _search_position_group(collection, chunk_position: str, group: list[dict]) -
             "content": obj.properties.get("content", ""),
             "category": obj.properties.get("category"),
             "score": obj.metadata.score,
-            "nct_id": obj.properties.get("nct_id"),
+            "filename": obj.properties.get("filename"),
             "chunk_position": obj.properties.get("chunk_position"),
             "chunk_index": obj.properties.get("chunk_index"),
         }
@@ -69,7 +69,7 @@ def retriever_node(state: AgentState) -> dict:
 
         deduped: dict[tuple, dict] = {}
         for item in all_results:
-            key = (item.get("nct_id"), item.get("chunk_index"))
+            key = (item.get("filename"), item.get("chunk_index"))
             deduped.setdefault(key, item)
 
         retrieved_chunks = [
@@ -77,7 +77,6 @@ def retriever_node(state: AgentState) -> dict:
                 "content": item["content"],
                 "category": item["category"],
                 "score": item["score"],
-                "nct_id": item["nct_id"],
                 "chunk_position": item["chunk_position"],
             }
             for item in deduped.values()

@@ -26,11 +26,8 @@ def write_tagged_file(
 
     shutil.copy2(original_file_path, TAGGED_FILES_DIR / tagged_filename)
 
-    nct_id = filename.split("_", 1)[0] if "_" in filename else stem
-
     metadata = {
         "filename": filename,
-        "nct_id": nct_id,
         "tagged_filename": tagged_filename,
         "final_category": final_category,
         "final_confidence": final_confidence,

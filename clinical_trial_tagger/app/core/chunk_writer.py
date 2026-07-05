@@ -9,7 +9,6 @@ SEPARATOR = "=" * 80
 
 def write_chunk_debug(
     filename: str,
-    nct_id: str,
     category: str,
     ingested_at: str,
     total_pages: int,
@@ -24,7 +23,6 @@ def write_chunk_debug(
 
     metadata = {
         "filename": filename,
-        "nct_id": nct_id,
         "category": category,
         "ingested_at": ingested_at,
         "total_pages": total_pages,
