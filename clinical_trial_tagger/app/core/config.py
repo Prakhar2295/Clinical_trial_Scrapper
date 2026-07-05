@@ -8,7 +8,6 @@ class Settings(BaseSettings):
     use_weaviate_embedded: bool = False
     embedding_model: str = "jinaai/jina-embeddings-v3"
     embedding_dimensions: int = 1024
-    reranker_model: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"
     top_k_retrieval: int = 10
     confidence_threshold: float = 0.85
     max_pages_initial: int = 3

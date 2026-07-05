@@ -114,11 +114,6 @@ class WeaviateStore:
         result = self.collection.aggregate.over_all(total_count=True, group_by="category")
         return {group.grouped_by.value: group.total_count for group in result.groups}
 
-    def all_chunks(self) -> list[dict]:
-        """Fetch every stored chunk, used to rebuild the in-memory BM25 index on startup."""
-        result = self.collection.query.fetch_objects(limit=100_000)
-        return [{**obj.properties, "uuid": str(obj.uuid)} for obj in result.objects]
-
 
 _store: WeaviateStore | None = None
 

@@ -12,7 +12,6 @@ class AgentState(TypedDict):
 
     # Retrieval outputs
     retrieved_chunks: list[dict]  # [{content, category, score, nct_id}]
-    bm25_results: list[dict]
 
     # Classification
     vote_counts: dict  # {category: count}

@@ -48,14 +48,14 @@ def _search_position_group(collection, chunk_position: str, group: list[dict]) -
 def retriever_node(state: AgentState) -> dict:
     chunks = state.get("chunks") or []
     if not chunks:
-        return {"retrieved_chunks": [], "bm25_results": []}
+        return {"retrieved_chunks": []}
 
     try:
         store = get_weaviate_store()
         if not store.is_ready():
-            return {"error": "retriever_node: Weaviate unavailable", "retrieved_chunks": [], "bm25_results": []}
+            return {"error": "retriever_node: Weaviate unavailable", "retrieved_chunks": []}
     except Exception as exc:
-        return {"error": f"retriever_node: Weaviate unavailable ({exc})", "retrieved_chunks": [], "bm25_results": []}
+        return {"error": f"retriever_node: Weaviate unavailable ({exc})", "retrieved_chunks": []}
 
     try:
         groups = _group_by_position(chunks)
@@ -83,6 +83,6 @@ def retriever_node(state: AgentState) -> dict:
             for item in deduped.values()
         ]
 
-        return {"retrieved_chunks": retrieved_chunks, "bm25_results": []}
+        return {"retrieved_chunks": retrieved_chunks}
     except Exception as exc:
-        return {"error": f"retriever_node failed: {exc}", "retrieved_chunks": [], "bm25_results": []}
+        return {"error": f"retriever_node failed: {exc}", "retrieved_chunks": []}

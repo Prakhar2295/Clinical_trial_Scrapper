@@ -8,7 +8,6 @@ from fastapi import APIRouter, BackgroundTasks, File, Form, UploadFile
 from app.core.chunker import chunk_for_ingestion
 from app.core.embedder import Embedder
 from app.core.extractor import PDFExtractor
-from app.db.bm25_store import get_bm25_store
 from app.db.weaviate_client import get_weaviate_store
 from app.schemas.ingest import IngestAcceptedResponse
 
@@ -50,7 +49,6 @@ def _run_ingestion(file_path: str, filename: str, category: str, nct_id: str) ->
 
         store = get_weaviate_store()
         store.add_chunks_batch(items)
-        get_bm25_store().add_many([item["properties"] for item in items])
 
         logger.info("Ingested %s: %d chunks", filename, len(items))
     except Exception:

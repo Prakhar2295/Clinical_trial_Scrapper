@@ -26,9 +26,6 @@ peft==0.13.2  # required by jinaai/jina-embeddings-v3 LoRA task adapters
 # Vector DB
 weaviate-client==4.7.1
 
-# Sparse Search
-rank-bm25==0.2.2
-
 # Utilities
 numpy==1.26.4
 tqdm==4.66.5
