@@ -1,8 +1,8 @@
 import json
 import re
 
+from langchain.agents import create_agent
 from langchain_anthropic import ChatAnthropic
-from langgraph.prebuilt import create_react_agent
 
 from app.agent.state import AgentState
 from app.agent.tools import AGENT_TOOLS
@@ -32,7 +32,7 @@ def _get_agent():
             api_key=settings.anthropic_api_key,
             temperature=0,
         )
-        _agent = create_react_agent(model=model, tools=AGENT_TOOLS, prompt=SYSTEM_PROMPT)
+        _agent = create_agent(model=model, tools=AGENT_TOOLS, system_prompt=SYSTEM_PROMPT)
     return _agent
 
 

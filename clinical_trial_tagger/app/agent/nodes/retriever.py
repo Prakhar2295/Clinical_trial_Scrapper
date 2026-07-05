@@ -1,7 +1,5 @@
 from collections import defaultdict
 
-from weaviate.classes.query import Filter, MetadataQuery, Rerank
-
 from app.agent.state import AgentState
 from app.core.config import settings
 from app.core.embedder import Embedder
@@ -19,30 +17,16 @@ def _group_by_position(chunks: list[dict]) -> dict[str, list[dict]]:
     return groups
 
 
-def _search_position_group(collection, chunk_position: str, group: list[dict]) -> list[dict]:
+def _search_position_group(store, chunk_position: str, group: list[dict]) -> list[dict]:
     chunk_text = "\n".join(c["content"] for c in group)[:2000]
-    vector = _embedder.embed_one(chunk_text).tolist()
+    embedding = _embedder.embed_one(chunk_text).tolist()
 
-    result = collection.query.hybrid(
-        query=chunk_text,
-        vector=vector,
+    return store.query_hybrid(
+        query_text=chunk_text,
+        vector=embedding,
+        chunk_position=chunk_position,
         limit=settings.top_k_retrieval,
-        filters=Filter.by_property("chunk_position").equal(chunk_position),
-        rerank=Rerank(prop="content", query=chunk_text),
-        return_metadata=MetadataQuery(score=True),
     )
-
-    return [
-        {
-            "content": obj.properties.get("content", ""),
-            "category": obj.properties.get("category"),
-            "score": obj.metadata.score,
-            "filename": obj.properties.get("filename"),
-            "chunk_position": obj.properties.get("chunk_position"),
-            "chunk_index": obj.properties.get("chunk_index"),
-        }
-        for obj in result.objects
-    ]
 
 
 def retriever_node(state: AgentState) -> dict:
@@ -65,11 +49,11 @@ def retriever_node(state: AgentState) -> dict:
             group = groups.get(chunk_position)
             if not group:
                 continue
-            all_results.extend(_search_position_group(store.collection, chunk_position, group))
+            all_results.extend(_search_position_group(store, chunk_position, group))
 
         deduped: dict[tuple, dict] = {}
         for item in all_results:
-            key = (item.get("filename"), item.get("chunk_index"))
+            key = (item.get("filename"), item.get("content"))
             deduped.setdefault(key, item)
 
         retrieved_chunks = [

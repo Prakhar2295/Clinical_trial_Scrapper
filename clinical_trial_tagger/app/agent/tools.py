@@ -1,5 +1,4 @@
 from langchain_core.tools import tool
-from weaviate.classes.query import MetadataQuery
 
 from app.core.embedder import Embedder
 from app.db.weaviate_client import get_weaviate_store
@@ -17,23 +16,24 @@ def hybrid_search(query: str, top_k: int = 5) -> list[dict]:
     if not store.is_ready():
         return []
 
-    vector = _embedder.embed_one(query).tolist()
-    result = store.collection.query.hybrid(
-        query=query,
-        vector=vector,
-        limit=top_k,
-        return_metadata=MetadataQuery(score=True),
-    )
-
-    return [
-        {
-            "content": obj.properties.get("content", ""),
-            "category": obj.properties.get("category"),
-            "filename": obj.properties.get("filename"),
-            "score": obj.metadata.score,
-        }
-        for obj in result.objects
-    ]
+    try:
+        vector = _embedder.embed_one(query).tolist()
+        return store.query_hybrid(
+            query_text=query,
+            vector=vector,
+            chunk_position="head",
+            limit=top_k,
+        )
+    except Exception as e:
+        return [
+            {
+                "error": f"hybrid_search tool failed: {e}",
+                "content": "",
+                "category": "",
+                "score": 0.0,
+                "chunk_position": "head",
+            }
+        ]
 
 
 AGENT_TOOLS = [hybrid_search]

@@ -28,6 +28,13 @@ def _run_ingestion(file_path: str, filename: str, category: str) -> None:
     No page limit and no timeout — runs to natural completion regardless of document size.
     """
     try:
+        store = get_weaviate_store()
+
+        existing = store.find_by_filename(filename)
+        if existing:
+            logger.info(f"Skipping {filename} — already ingested with {len(existing)} chunks")
+            return
+
         markdown = _extractor.extract_markdown(file_path)
         chunk_dicts = chunk_for_ingestion(markdown)
 
@@ -58,7 +65,6 @@ def _run_ingestion(file_path: str, filename: str, category: str) -> None:
                 }
             )
 
-        store = get_weaviate_store()
         store.add_chunks_batch(items)
 
         logger.info("Ingested %s: %d chunks", filename, len(items))
@@ -82,6 +88,10 @@ async def ingest(
             f"Valid categories: {category_registry.all()}. "
             f"Add new categories via POST /categories first.",
         )
+
+    # Canonicalize to the registry's exact stored spelling, regardless of the casing
+    # the client submitted, so votes for the same category never split across casings.
+    category = next(c for c in category_registry.all() if c.lower() == category.lower())
 
     contents = await file.read()
     suffix = Path(file.filename).suffix or ".pdf"
