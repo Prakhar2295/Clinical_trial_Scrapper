@@ -1,0 +1,196 @@
+{
+  "per_category_accuracy": {
+    "Protocol": {
+      "total": 9,
+      "correct": 7,
+      "accuracy": 0.7777777777777778
+    },
+    "SAP": {
+      "total": 7,
+      "correct": 6,
+      "accuracy": 0.8571428571428571
+    },
+    "ICF": {
+      "total": 9,
+      "correct": 7,
+      "accuracy": 0.7777777777777778
+    },
+    "Combined": {
+      "total": 7,
+      "correct": 1,
+      "accuracy": 0.14285714285714285
+    }
+  },
+  "overall_accuracy": 0.65625,
+  "overall_total": 32,
+  "overall_correct": 21,
+  "confusion_matrix": {
+    "Protocol": {
+      "Protocol": 7,
+      "ERROR": 2
+    },
+    "SAP": {
+      "SAP": 6,
+      "Protocol": 1
+    },
+    "ICF": {
+      "ICF": 7,
+      "ERROR": 2
+    },
+    "Combined": {
+      "Protocol": 5,
+      "ERROR": 1,
+      "Combined": 1
+    }
+  },
+  "low_confidence_predictions": [
+    {
+      "filename": "NCT06900647_Prot_000.pdf",
+      "predicted": "Protocol",
+      "confidence": 0.6,
+      "true": "Protocol"
+    },
+    {
+      "filename": "NCT06977620_Prot_000.pdf",
+      "predicted": "Protocol",
+      "confidence": 0.35,
+      "true": "Protocol"
+    },
+    {
+      "filename": "NCT07293052_Prot_000.pdf",
+      "predicted": "Protocol",
+      "confidence": 0.65,
+      "true": "Protocol"
+    },
+    {
+      "filename": "NCT07370571_Prot_000.pdf",
+      "predicted": "Protocol",
+      "confidence": 0.65,
+      "true": "Protocol"
+    },
+    {
+      "filename": "NCT07145333_SAP_001.pdf",
+      "predicted": "Protocol",
+      "confidence": 0.65,
+      "true": "SAP"
+    },
+    {
+      "filename": "NCT07553598_Prot_SAP_000.pdf",
+      "predicted": "Protocol",
+      "confidence": 0.35,
+      "true": "Combined"
+    }
+  ],
+  "fallback_triggered_predictions": [
+    {
+      "filename": "NCT06900647_Prot_000.pdf",
+      "predicted": "Protocol",
+      "true": "Protocol"
+    },
+    {
+      "filename": "NCT06977620_Prot_000.pdf",
+      "predicted": "Protocol",
+      "true": "Protocol"
+    },
+    {
+      "filename": "NCT07070362_Prot_000.pdf",
+      "predicted": "Protocol",
+      "true": "Protocol"
+    },
+    {
+      "filename": "NCT07231159_Prot_000.pdf",
+      "predicted": "Protocol",
+      "true": "Protocol"
+    },
+    {
+      "filename": "NCT07293052_Prot_000.pdf",
+      "predicted": "Protocol",
+      "true": "Protocol"
+    },
+    {
+      "filename": "NCT07370571_Prot_000.pdf",
+      "predicted": "Protocol",
+      "true": "Protocol"
+    },
+    {
+      "filename": "NCT07597642_Prot_000.pdf",
+      "predicted": "Protocol",
+      "true": "Protocol"
+    },
+    {
+      "filename": "NCT06476249_SAP_001.pdf",
+      "predicted": "SAP",
+      "true": "SAP"
+    },
+    {
+      "filename": "NCT06630962_SAP_001.pdf",
+      "predicted": "SAP",
+      "true": "SAP"
+    },
+    {
+      "filename": "NCT06877949_SAP_001.pdf",
+      "predicted": "SAP",
+      "true": "SAP"
+    },
+    {
+      "filename": "NCT07107893_SAP_001.pdf",
+      "predicted": "SAP",
+      "true": "SAP"
+    },
+    {
+      "filename": "NCT07112482_SAP_001.pdf",
+      "predicted": "SAP",
+      "true": "SAP"
+    },
+    {
+      "filename": "NCT07145333_SAP_001.pdf",
+      "predicted": "Protocol",
+      "true": "SAP"
+    },
+    {
+      "filename": "NCT07307664_SAP_001.pdf",
+      "predicted": "SAP",
+      "true": "SAP"
+    },
+    {
+      "filename": "NCT07045610_ICF_001.pdf",
+      "predicted": "ICF",
+      "true": "ICF"
+    },
+    {
+      "filename": "NCT07564557_ICF_001.pdf",
+      "predicted": "ICF",
+      "true": "ICF"
+    },
+    {
+      "filename": "NCT07143097_Prot_SAP_000.pdf",
+      "predicted": "Protocol",
+      "true": "Combined"
+    },
+    {
+      "filename": "NCT07216274_Prot_SAP_000.pdf",
+      "predicted": "Protocol",
+      "true": "Combined"
+    },
+    {
+      "filename": "NCT07251439_Prot_SAP_000.pdf",
+      "predicted": "Protocol",
+      "true": "Combined"
+    },
+    {
+      "filename": "NCT07446686_Prot_SAP_000.pdf",
+      "predicted": "Protocol",
+      "true": "Combined"
+    },
+    {
+      "filename": "NCT07553598_Prot_SAP_000.pdf",
+      "predicted": "Protocol",
+      "true": "Combined"
+    },
+    {
+      "filename": "NCT07564557_Prot_SAP_000.pdf",
+      "predicted": "Combined",
+      "true": "Combined"
+    }
+  ]
+}

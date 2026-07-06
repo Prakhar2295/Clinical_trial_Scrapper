@@ -1,0 +1,457 @@
+[
+  {
+    "filename": "NCT06900647_Prot_000.pdf",
+    "true_category": "Protocol",
+    "predicted_category": "Protocol",
+    "correct": true,
+    "final_confidence": 0.6,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "Protocol": 6,
+      "Combined": 1,
+      "SAP": 1,
+      "ICF": 2
+    },
+    "processing_time_seconds": 46.19,
+    "error": "finalizer_node failed: Connection error."
+  },
+  {
+    "filename": "NCT06977620_Prot_000.pdf",
+    "true_category": "Protocol",
+    "predicted_category": "Protocol",
+    "correct": true,
+    "final_confidence": 0.35,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "Protocol": 5,
+      "SAP": 2,
+      "ICF": 2,
+      "Combined": 1
+    },
+    "processing_time_seconds": 60.82,
+    "error": null
+  },
+  {
+    "filename": "NCT07070362_Prot_000.pdf",
+    "true_category": "Protocol",
+    "predicted_category": "Protocol",
+    "correct": true,
+    "final_confidence": 0.72,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "SAP": 5,
+      "Protocol": 2,
+      "Combined": 1,
+      "ICF": 2
+    },
+    "processing_time_seconds": 34.16,
+    "error": null
+  },
+  {
+    "filename": "NCT07231159_Prot_000.pdf",
+    "true_category": "Protocol",
+    "predicted_category": "Protocol",
+    "correct": true,
+    "final_confidence": 0.75,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "SAP": 2,
+      "Combined": 2,
+      "Protocol": 4,
+      "ICF": 2
+    },
+    "processing_time_seconds": 54.55,
+    "error": null
+  },
+  {
+    "filename": "NCT07293052_Prot_000.pdf",
+    "true_category": "Protocol",
+    "predicted_category": "Protocol",
+    "correct": true,
+    "final_confidence": 0.65,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "SAP": 1,
+      "Protocol": 6,
+      "ICF": 1,
+      "Combined": 2
+    },
+    "processing_time_seconds": 22.86,
+    "error": null
+  },
+  {
+    "filename": "NCT07365072_Prot_000.pdf",
+    "true_category": "Protocol",
+    "predicted_category": null,
+    "correct": false,
+    "final_confidence": null,
+    "fallback_triggered": null,
+    "vote_breakdown": null,
+    "processing_time_seconds": null,
+    "error": "HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=180)"
+  },
+  {
+    "filename": "NCT07370571_Prot_000.pdf",
+    "true_category": "Protocol",
+    "predicted_category": "Protocol",
+    "correct": true,
+    "final_confidence": 0.65,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "SAP": 4,
+      "ICF": 2,
+      "Protocol": 4
+    },
+    "processing_time_seconds": 37.96,
+    "error": null
+  },
+  {
+    "filename": "NCT07472036_Prot_000.pdf",
+    "true_category": "Protocol",
+    "predicted_category": null,
+    "correct": false,
+    "final_confidence": null,
+    "fallback_triggered": null,
+    "vote_breakdown": null,
+    "processing_time_seconds": null,
+    "error": "HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=180)"
+  },
+  {
+    "filename": "NCT07597642_Prot_000.pdf",
+    "true_category": "Protocol",
+    "predicted_category": "Protocol",
+    "correct": true,
+    "final_confidence": 0.95,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "Protocol": 8,
+      "SAP": 2
+    },
+    "processing_time_seconds": 116.25,
+    "error": null
+  },
+  {
+    "filename": "NCT06476249_SAP_001.pdf",
+    "true_category": "SAP",
+    "predicted_category": "SAP",
+    "correct": true,
+    "final_confidence": 0.75,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "Protocol": 4,
+      "SAP": 5,
+      "Combined": 1
+    },
+    "processing_time_seconds": 14.99,
+    "error": null
+  },
+  {
+    "filename": "NCT06630962_SAP_001.pdf",
+    "true_category": "SAP",
+    "predicted_category": "SAP",
+    "correct": true,
+    "final_confidence": 0.75,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "SAP": 4,
+      "Combined": 5,
+      "Protocol": 1
+    },
+    "processing_time_seconds": 51.6,
+    "error": null
+  },
+  {
+    "filename": "NCT06877949_SAP_001.pdf",
+    "true_category": "SAP",
+    "predicted_category": "SAP",
+    "correct": true,
+    "final_confidence": 0.95,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "Protocol": 4,
+      "SAP": 6
+    },
+    "processing_time_seconds": 51.56,
+    "error": null
+  },
+  {
+    "filename": "NCT07107893_SAP_001.pdf",
+    "true_category": "SAP",
+    "predicted_category": "SAP",
+    "correct": true,
+    "final_confidence": 0.75,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "Combined": 2,
+      "SAP": 6,
+      "Protocol": 2
+    },
+    "processing_time_seconds": 33.77,
+    "error": null
+  },
+  {
+    "filename": "NCT07112482_SAP_001.pdf",
+    "true_category": "SAP",
+    "predicted_category": "SAP",
+    "correct": true,
+    "final_confidence": 0.95,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "Combined": 7,
+      "SAP": 1,
+      "Protocol": 2
+    },
+    "processing_time_seconds": 15.81,
+    "error": null
+  },
+  {
+    "filename": "NCT07145333_SAP_001.pdf",
+    "true_category": "SAP",
+    "predicted_category": "Protocol",
+    "correct": false,
+    "final_confidence": 0.65,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "SAP": 5,
+      "Protocol": 3,
+      "ICF": 2
+    },
+    "processing_time_seconds": 31.23,
+    "error": null
+  },
+  {
+    "filename": "NCT07307664_SAP_001.pdf",
+    "true_category": "SAP",
+    "predicted_category": "SAP",
+    "correct": true,
+    "final_confidence": 0.95,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "Protocol": 6,
+      "SAP": 2,
+      "Combined": 2
+    },
+    "processing_time_seconds": 54.89,
+    "error": null
+  },
+  {
+    "filename": "NCT07044791_ICF_001.pdf",
+    "true_category": "ICF",
+    "predicted_category": "ICF",
+    "correct": true,
+    "final_confidence": 0.99,
+    "fallback_triggered": false,
+    "vote_breakdown": {
+      "ICF": 10
+    },
+    "processing_time_seconds": 6.75,
+    "error": null
+  },
+  {
+    "filename": "NCT07045610_ICF_001.pdf",
+    "true_category": "ICF",
+    "predicted_category": "ICF",
+    "correct": true,
+    "final_confidence": 0.85,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "Combined": 2,
+      "SAP": 3,
+      "ICF": 2,
+      "Protocol": 3
+    },
+    "processing_time_seconds": 26.41,
+    "error": null
+  },
+  {
+    "filename": "NCT07216274_ICF_001.pdf",
+    "true_category": "ICF",
+    "predicted_category": null,
+    "correct": false,
+    "final_confidence": null,
+    "fallback_triggered": null,
+    "vote_breakdown": null,
+    "processing_time_seconds": null,
+    "error": "HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=180)"
+  },
+  {
+    "filename": "NCT07250204_ICF_001.pdf",
+    "true_category": "ICF",
+    "predicted_category": "ICF",
+    "correct": true,
+    "final_confidence": 0.99,
+    "fallback_triggered": false,
+    "vote_breakdown": {
+      "ICF": 10
+    },
+    "processing_time_seconds": 5.18,
+    "error": null
+  },
+  {
+    "filename": "NCT07263347_ICF_001.pdf",
+    "true_category": "ICF",
+    "predicted_category": "ICF",
+    "correct": true,
+    "final_confidence": 0.99,
+    "fallback_triggered": false,
+    "vote_breakdown": {
+      "ICF": 10
+    },
+    "processing_time_seconds": 8.96,
+    "error": null
+  },
+  {
+    "filename": "NCT07365072_ICF_001.pdf",
+    "true_category": "ICF",
+    "predicted_category": "ICF",
+    "correct": true,
+    "final_confidence": 0.99,
+    "fallback_triggered": false,
+    "vote_breakdown": {
+      "ICF": 10
+    },
+    "processing_time_seconds": 9.66,
+    "error": null
+  },
+  {
+    "filename": "NCT07365267_ICF_001.pdf",
+    "true_category": "ICF",
+    "predicted_category": null,
+    "correct": false,
+    "final_confidence": null,
+    "fallback_triggered": null,
+    "vote_breakdown": null,
+    "processing_time_seconds": null,
+    "error": "HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=180)"
+  },
+  {
+    "filename": "NCT07447700_ICF_001.pdf",
+    "true_category": "ICF",
+    "predicted_category": "ICF",
+    "correct": true,
+    "final_confidence": 0.99,
+    "fallback_triggered": false,
+    "vote_breakdown": {
+      "ICF": 10
+    },
+    "processing_time_seconds": 9.12,
+    "error": null
+  },
+  {
+    "filename": "NCT07564557_ICF_001.pdf",
+    "true_category": "ICF",
+    "predicted_category": "ICF",
+    "correct": true,
+    "final_confidence": 0.95,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "SAP": 3,
+      "ICF": 4,
+      "Protocol": 3
+    },
+    "processing_time_seconds": 8.66,
+    "error": null
+  },
+  {
+    "filename": "NCT07143097_Prot_SAP_000.pdf",
+    "true_category": "Combined",
+    "predicted_category": "Protocol",
+    "correct": false,
+    "final_confidence": 0.75,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "Protocol": 6,
+      "SAP": 2,
+      "Combined": 2
+    },
+    "processing_time_seconds": 18.25,
+    "error": null
+  },
+  {
+    "filename": "NCT07216274_Prot_SAP_000.pdf",
+    "true_category": "Combined",
+    "predicted_category": "Protocol",
+    "correct": false,
+    "final_confidence": 0.85,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "Protocol": 6,
+      "Combined": 3,
+      "ICF": 1
+    },
+    "processing_time_seconds": 14.61,
+    "error": null
+  },
+  {
+    "filename": "NCT07251439_Prot_SAP_000.pdf",
+    "true_category": "Combined",
+    "predicted_category": "Protocol",
+    "correct": false,
+    "final_confidence": 0.92,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "Protocol": 7,
+      "SAP": 2,
+      "Combined": 1
+    },
+    "processing_time_seconds": 18.53,
+    "error": null
+  },
+  {
+    "filename": "NCT07365267_Prot_SAP_000.pdf",
+    "true_category": "Combined",
+    "predicted_category": null,
+    "correct": false,
+    "final_confidence": null,
+    "fallback_triggered": null,
+    "vote_breakdown": null,
+    "processing_time_seconds": null,
+    "error": "HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=180)"
+  },
+  {
+    "filename": "NCT07446686_Prot_SAP_000.pdf",
+    "true_category": "Combined",
+    "predicted_category": "Protocol",
+    "correct": false,
+    "final_confidence": 0.85,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "SAP": 2,
+      "Protocol": 5,
+      "Combined": 2,
+      "ICF": 1
+    },
+    "processing_time_seconds": 63.85,
+    "error": null
+  },
+  {
+    "filename": "NCT07553598_Prot_SAP_000.pdf",
+    "true_category": "Combined",
+    "predicted_category": "Protocol",
+    "correct": false,
+    "final_confidence": 0.35,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "ICF": 5,
+      "Protocol": 4,
+      "Combined": 1
+    },
+    "processing_time_seconds": 56.84,
+    "error": null
+  },
+  {
+    "filename": "NCT07564557_Prot_SAP_000.pdf",
+    "true_category": "Combined",
+    "predicted_category": "Combined",
+    "correct": true,
+    "final_confidence": 0.85,
+    "fallback_triggered": true,
+    "vote_breakdown": {
+      "SAP": 4,
+      "Protocol": 5,
+      "ICF": 1
+    },
+    "processing_time_seconds": 8.85,
+    "error": null
+  }
+]

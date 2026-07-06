@@ -25,12 +25,17 @@ _embedder = Embedder()
 _in_progress: set[str] = set()
 _in_progress_lock = threading.Lock()
 
+# Docling extraction + embedding is CPU/GPU heavy; cap how many background
+# ingestions can run at once so a burst of uploads doesn't overload the machine.
+_ingestion_semaphore = threading.Semaphore(2)
+
 
 def _run_ingestion(file_path: str, filename: str, category: str) -> None:
     """Background task: full-document extraction, chunking, embedding, and Weaviate write.
 
     No page limit and no timeout — runs to natural completion regardless of document size.
     """
+    _ingestion_semaphore.acquire()
     claimed = False
     try:
         with _in_progress_lock:
@@ -86,6 +91,7 @@ def _run_ingestion(file_path: str, filename: str, category: str) -> None:
         if claimed:
             with _in_progress_lock:
                 _in_progress.discard(filename)
+        _ingestion_semaphore.release()
         if os.path.exists(file_path):
             os.remove(file_path)
 
